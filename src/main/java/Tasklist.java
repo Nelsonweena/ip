@@ -12,6 +12,16 @@ public class Tasklist {
         System.out.println("    ____________________________________");
     }
 
+    public void removeFromList(int i){
+        Task t = lst.get(i - 1);
+        lst.remove(i - 1);
+        System.out.println("    ____________________________________________________________");
+        System.out.println("     Noted. I've removed this task:");
+        System.out.println("       " + t);
+        System.out.println("     Now you have " + lst.size() + " tasks in the list.");
+        System.out.println("    ____________________________________________________________");
+    }
+
     public void tickbox(int i){
         Task t = lst.get(i - 1);
         t.markDone();

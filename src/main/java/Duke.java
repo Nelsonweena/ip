@@ -24,6 +24,11 @@ public class Duke {
                         throw new BotException("OOPS!!! Unmark needs a task number.");
                     } 
                     lst.untickbox(Integer.parseInt(s[1]));
+                } else if(s[0].equals("delete") || s[0].equals("Delete")){
+                    if (r.isEmpty()) {
+                        throw new BotException("OOPS!!! Delete needs a task number.");
+                    }
+                    lst.removeFromList(Integer.parseInt(s[1]));
                 } else if(s[0].equals("todo") || s[0].equals("Todo")){
                     if (r.isEmpty()) {
                         throw new BotException("OOPS!!! The description of a todo cannot be empty.");
@@ -48,7 +53,7 @@ public class Duke {
                     break;
                 } else if(input.equals("list") || input.equals("List")){
                     lst.displayList();
-                } else {
+                } else{
                     throw new BotException("OOPS!!! I'm sorry, but I don't know what that means :-(");
                 } 
                 
