@@ -4,6 +4,7 @@ public class Duke {
     public static void main(String[] args) {
         Greeting.welcome();
         Scanner sc = new Scanner(System.in);
+        chatlist lst = new chatlist();
         String input;
 
         while (true) {
@@ -13,8 +14,10 @@ public class Duke {
                 Goodbye.Goodbye();
                 sc.close();
                 break;
+            } else if(input.equals("list") || input.equals("List")){
+                lst.displayList();
             } else {
-                Echo.echoback(input);
+                lst.addToList(input);
             }
         }
     }
