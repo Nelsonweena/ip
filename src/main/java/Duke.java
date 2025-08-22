@@ -11,7 +11,7 @@ public class Duke {
             input = sc.nextLine();
 
             if(input.equals("bye") || input.equals("Bye")){
-                Goodbye.Goodbye();
+                Goodbye.bye();
                 sc.close();
                 break;
             } else if(input.equals("list") || input.equals("List")){

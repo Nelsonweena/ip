@@ -5,9 +5,7 @@ public class chatlist {
 
     public void addToList(String input){
         lst.add(input);
-        System.out.println("    ____________________________________");
-        System.out.println("     added: " + input);
-        System.out.println("    ____________________________________");
+        Echo.echoback(input);
     }
 
     public void displayList(){
