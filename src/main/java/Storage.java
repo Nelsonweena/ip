@@ -46,4 +46,8 @@ public class Storage {
 
     return lines;
     }
+
+    public boolean dataAvail(){
+        return file.exists() && file.length() > 0;
+    }
 }

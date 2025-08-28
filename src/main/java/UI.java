@@ -1,4 +1,4 @@
-public class Voice {
+public class UI {
     
     private String logo = ""
             + "     _   _      _                 \n"
@@ -52,5 +52,31 @@ public class Voice {
         System.out.println("    ____________________________________");
     }
 
+    public void markError() throws BotException{
+        throw new BotException("OOPS!!! Mark needs a task number.");
+    }
 
+    public void unmarkError() throws BotException{
+        throw new BotException("OOPS!!! Unmark needs a task number.");
+    }
+
+    public void deleteError() throws BotException{
+        throw new BotException("OOPS!!! Delete needs a task number.");
+    }
+
+    public void todoError() throws BotException{
+        throw new BotException("OOPS!!! The description of a Todo cannot be empty.");
+    }
+
+    public void deadlineError() throws BotException{
+        throw new BotException("OOPS!!! The description of a Deadline cannot be empty.");
+    }
+
+    public void eventError() throws BotException{
+        throw new BotException("OOPS!!! The description of a Event cannot be empty.");
+    }
+    
+    public void unknownError() throws BotException{
+        throw new BotException("OOPS!!! I'm sorry, but I don't know what that means :-(");
+    }
 }
