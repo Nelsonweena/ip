@@ -34,8 +34,8 @@ public class Tasklist {
     public void displayList(){
         System.out.println("    ____________________________________");
         System.out.println("     Here are the tasks in your list:");
-        for(int i = 0; i < Tasklist.Listsize(); i++){
-            System.out.println("     " + (i + 1) + "." + Tasklist.peekList(i));
+        for(int i = 0; i < Listsize(); i++){
+            System.out.println("     " + (i + 1) + "." + peekList(i));
         }
         System.out.println("    ____________________________________");
     }
