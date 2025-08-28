@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 public class Storage {
     private File file;
-    String filePath = "./ip/data/UserInputs.txt";
+    String filePath = "./data/UserInputs.txt";
     BufferedWriter bw;
     BufferedReader br;
 
