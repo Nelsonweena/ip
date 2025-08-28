@@ -1,3 +1,8 @@
+package duke.UserInterface;
+
+import duke.Task.Task;
+import duke.Task.Tasklist;
+
 public class UI {
     
     private String logo = ""
@@ -75,7 +80,7 @@ public class UI {
     public void eventError() throws BotException{
         throw new BotException("OOPS!!! The description of a Event cannot be empty.");
     }
-    
+
     public void unknownError() throws BotException{
         throw new BotException("OOPS!!! I'm sorry, but I don't know what that means :-(");
     }

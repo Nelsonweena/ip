@@ -1,4 +1,7 @@
+package duke;
 import java.util.*;
+
+import duke.UserInterface.UI;
 
 public class Duke {
     public static void main(String[] args) {

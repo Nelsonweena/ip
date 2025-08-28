@@ -1,3 +1,4 @@
+package duke.UserInterface;
 public class Errormsg {
     public static void printError(String msg) {
     System.out.println("    ____________________________________");

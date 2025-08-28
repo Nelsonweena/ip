@@ -1,3 +1,4 @@
+package duke.Task;
 public class Task {
     
     protected String description;

@@ -1,3 +1,13 @@
+package duke;
+
+import duke.Task.Deadline;
+import duke.Task.Event;
+import duke.Task.Task;
+import duke.Task.Tasklist;
+import duke.Task.Todo;
+import duke.UserInterface.BotException;
+import duke.UserInterface.Errormsg;
+import duke.UserInterface.UI;
 
 public class Parser {
     private boolean Readback = false;
@@ -58,7 +68,7 @@ public class Parser {
                     case "todo": {
                         if (discript.isEmpty()) {
                             if(Readback){
-                                throw new BotException("OOPS!!! The description of a Todo cannot be empty.");
+                                voice.todoError();
                             }
                         }
                         Task t = new Todo(discript);
@@ -71,7 +81,7 @@ public class Parser {
                     case "deadline": {
                         if (discript.isEmpty() || !discript.contains("/by")) {
                             if(Readback){
-                                throw new BotException("OOPS!!! The description of a Deadline cannot be empty.");
+                                voice.deadlineError();
                             }
                         }
                         Task t = new Deadline(discript);
@@ -84,7 +94,7 @@ public class Parser {
                     case "event": {
                         if (discript.isEmpty() || !discript.contains("/from") || !discript.contains("/to")) {
                             if(Readback){
-                                throw new BotException("OOPS!!! The description of a Event cannot be empty.");
+                                voice.eventError();
                             }
                         
                         }
@@ -110,7 +120,7 @@ public class Parser {
                     } 
                     default: {
                         if(Readback){
-                            throw new BotException("OOPS!!! I'm sorry, but I don't know what that means :-(");
+                            voice.unknownError();
                         }
                     }
                 }
