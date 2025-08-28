@@ -1,13 +1,10 @@
-package duke;
+package duke.UserInterface;
 
 import duke.Task.Deadline;
 import duke.Task.Event;
 import duke.Task.Task;
 import duke.Task.Tasklist;
 import duke.Task.Todo;
-import duke.UserInterface.BotException;
-import duke.UserInterface.Errormsg;
-import duke.UserInterface.UI;
 
 public class Parser {
     private boolean Readback = false;
