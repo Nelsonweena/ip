@@ -115,6 +115,13 @@ public class Parser {
                     }
                     break;
                 } 
+
+                case "find": {
+                    if (hasReadBack) {
+                        lst.find(discript);
+                    }
+                    break;
+}
                 case "bye": {
                     if (hasReadBack) {
                         voice.bye();

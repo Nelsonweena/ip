@@ -48,4 +48,16 @@ public class Tasklist {
         }
         System.out.println("    ____________________________________");
     }
+
+    public void find(String keyword) {
+    System.out.println("    ____________________________________");
+    System.out.println("     Here are the matching tasks in your list:");
+    for (int i = 0; i < Listsize(); i++) {
+        Task t = peekList(i);
+        if (t.toString().contains(keyword)) {
+            System.out.println("     " + (i + 1) + "." + t);
+        }
+    }
+    System.out.println("    ____________________________________");
+    }
 }
