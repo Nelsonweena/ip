@@ -10,17 +10,12 @@ public class Deadline extends Task{
 
     private LocalDateTime dline;
 
-<<<<<<< HEAD
-    //constructor method for deadline classes 
-    public Deadline(String input){
-=======
     /**
      * constructor method for deadline class
      *
      * @param input description of deadline task 
      */
     public Deadline(String input) {
->>>>>>> branch-A-CodingStandard
         super("");
         String[] inputArr = input.split(" /by ", 2);
         this.description = inputArr[0];

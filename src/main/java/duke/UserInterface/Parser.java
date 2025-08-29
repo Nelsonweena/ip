@@ -12,15 +12,6 @@ public class Parser {
     private Tasklist lst = new Tasklist();
     private UI voice = new UI();
 
-<<<<<<< HEAD
-    //constructor for Parser class 
-    public Parser(boolean Readback){
-        this.Readback = Readback;
-    }
-
-    //method to change user input into commands 
-    public boolean parse(String input){
-=======
     /**
     * Parser class contructor
     *
@@ -36,7 +27,6 @@ public class Parser {
     * @param input input to parse into database
     */ 
     public boolean parse(String input) {
->>>>>>> branch-A-CodingStandard
         
             try {
                 String[] inputArr = input.split(" ", 2);

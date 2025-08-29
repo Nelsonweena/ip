@@ -6,14 +6,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 //Event class for Tasks labelled as event
-<<<<<<< HEAD
-public class Event extends Task{
-    private LocalDateTime from;
-    private LocalDateTime to;
-
-    //constructor method for event class
-    public Event(String input){
-=======
  public class Event extends Task{
     private LocalDateTime from;
     private LocalDateTime to;
@@ -24,7 +16,6 @@ public class Event extends Task{
      * @param input description of event task 
      */
     public Event(String input) {
->>>>>>> branch-A-CodingStandard
         super("");
         String[] inputArr = input.split(" /from ", 2);
         this.description = inputArr[0];

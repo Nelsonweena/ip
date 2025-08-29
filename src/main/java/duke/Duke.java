@@ -17,11 +17,7 @@ public class Duke {
         Parser p;
 
         //loads previously stored data into current database 
-<<<<<<< HEAD
-        if(storage.dataAvail()){
-=======
         if (storage.hasData()) {
->>>>>>> branch-A-CodingStandard
             List<String> Storedinputs = storage.loadAll();
             p = new Parser(false);
             for(String prev : Storedinputs) {
@@ -32,16 +28,10 @@ public class Duke {
         voice.welcome();
 
         String input;
-<<<<<<< HEAD
-
-        //handles new user commands and stores it into current existing database 
-        while (loop) {
-=======
         boolean isNotFinished = true;
 
         //handles new user commands and stores it into current existing database 
         while (isNotFinished) {
->>>>>>> branch-A-CodingStandard
             input = sc.nextLine();
             storage.storeData(input);
             isNotFinished = p.parse(input);
