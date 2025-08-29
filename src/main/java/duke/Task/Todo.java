@@ -1,18 +1,24 @@
-package duke.Task;
+package duke.task;
 
-//Todo class for Tasks labelled as todo
-public class Todo extends Task{
-    
+/**
+ * Represents a task without any date/time (a simple todo).
+ */
+public class Todo extends Task {
+
     /**
-    * constructor class for todo tasks
-    *
-    * @param input input descripton of task 
-    */ 
+     * Creates a new Todo task.
+     *
+     * @param input the description of the task
+     */
     public Todo(String input) {
         super(input);
     }
 
-    //toString method for todo class 
+    /**
+     * Returns the string representation of the todo task.
+     *
+     * @return formatted string with task type and description
+     */
     @Override
     public String toString() {
         return " T " + super.toString();

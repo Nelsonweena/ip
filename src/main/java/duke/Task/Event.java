@@ -1,19 +1,24 @@
-package duke.Task;
+package duke.task;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
-//Event class for Tasks labelled as event
- public class Event extends Task{
+/**
+ * Represents a task with a start and end date/time (event).
+ */
+public class Event extends Task {
+
     private LocalDateTime from;
     private LocalDateTime to;
 
     /**
-     * constructor method for event class
+     * Creates a new Event task.
      *
-     * @param input description of event task 
+     * @param input the description and time in the format
+     *              "desc /from yyyy-MM-dd HHmm /to yyyy-MM-dd HHmm"
+     *              or with dates only "desc /from yyyy-MM-dd /to yyyy-MM-dd"
      */
     public Event(String input) {
         super("");
@@ -40,13 +45,18 @@ import java.time.format.DateTimeParseException;
             LocalDate date = LocalDate.parse(toDateTimeStr, dateFormat);
             this.to = date.atStartOfDay();
         }
-
     }
 
-    //toString method for event class 
+    /**
+     * Returns the string representation of the event task.
+     *
+     * @return formatted string showing description, start and end times
+     */
     @Override
     public String toString() {
         DateTimeFormatter oFormat = DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");
-        return " E " + super.toString() + " (from: " + from.format(oFormat) + " to: " + to.format(oFormat) + ")";
+        return " E " + super.toString()
+                + " (from: " + from.format(oFormat)
+                + " to: " + to.format(oFormat) + ")";
     }
 }

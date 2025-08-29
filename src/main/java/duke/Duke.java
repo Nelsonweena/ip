@@ -1,36 +1,42 @@
 package duke;
-import java.util.Scanner;
+
 import java.util.List;
+import java.util.Scanner;
 
-import duke.UserInterface.UI;
-import duke.UserInterface.Parser;
+import duke.userinterface.Parser;
+import duke.userinterface.UI;
 
-//Represents main entry point for the Duke application
+/**
+ * Represents the main entry point for the Duke application.
+ */
 public class Duke {
 
-    //Runs the program, loads data, then invite user to input commands 
+    /**
+     * Runs the program, loads data, then invites user to input commands.
+     */
     public static void main(String[] args) {
-        
+
         Scanner sc = new Scanner(System.in);
         UI voice = new UI();
         Storage storage = new Storage();
         Parser p;
 
-        //loads previously stored data into current database 
+        // Loads previously stored data into current database
         if (storage.hasData()) {
-            List<String> Storedinputs = storage.loadAll();
+            List<String> storedInputs = storage.loadAll();
             p = new Parser(false);
-            for(String prev : Storedinputs) {
+            for (String prev : storedInputs) {
                 p.parse(prev);
-            } 
-        } 
+            }
+        }
+
         p = new Parser(true);
         voice.welcome();
 
         String input;
         boolean isNotFinished = true;
 
-        //handles new user commands and stores it into current existing database 
+        // Handles new user commands and stores them into the current database
         while (isNotFinished) {
             input = sc.nextLine();
             storage.storeData(input);

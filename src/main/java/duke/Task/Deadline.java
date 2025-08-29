@@ -1,19 +1,21 @@
-package duke.Task;
+package duke.task;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
-//deadline class for Tasks labelled as deadline
-public class Deadline extends Task{
+/**
+ * Represents a task with a deadline.
+ */
+public class Deadline extends Task {
 
     private LocalDateTime dline;
 
     /**
-     * constructor method for deadline class
+     * Creates a new Deadline task.
      *
-     * @param input description of deadline task 
+     * @param input the description and deadline in the format "desc /by yyyy-MM-dd HHmm" or "desc /by yyyy-MM-dd"
      */
     public Deadline(String input) {
         super("");
@@ -32,7 +34,11 @@ public class Deadline extends Task{
         }
     }
 
-    //toString method for deadline classes
+    /**
+     * Returns the string representation of the deadline task.
+     *
+     * @return formatted string showing description and deadline
+     */
     @Override
     public String toString() {
         DateTimeFormatter oFormat = DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");

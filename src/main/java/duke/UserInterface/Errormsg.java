@@ -1,12 +1,18 @@
-package duke.UserInterface;
+package duke.userinterface;
 
-//Errormsg class to print error message format when called on 
+/**
+ * Utility class for printing error messages in a formatted style.
+ */
 public class Errormsg {
 
-    //method for printing error messages 
+    /**
+     * Prints an error message in a formatted box.
+     *
+     * @param msg the error message to display
+     */
     public static void printError(String msg) {
-    System.out.println("    ____________________________________");
-    System.out.println("     " + msg);
-    System.out.println("    ____________________________________");
+        System.out.println("    ____________________________________");
+        System.out.println("     " + msg);
+        System.out.println("    ____________________________________");
     }
 }

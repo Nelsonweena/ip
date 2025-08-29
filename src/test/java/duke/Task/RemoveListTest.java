@@ -1,19 +1,25 @@
-package duke.Task;
+package duke.task;
 
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-//RemoveListTest for junit test on removing task from list 
-public class RemoveListTest {
-    @Test
+import org.junit.jupiter.api.Test;
 
-    //method for testing if the removefromlist method works as expected 
-    public void removeTask_validTask_taskAdded() {
+/**
+ * JUnit test for removing tasks from the Tasklist.
+ */
+public class RemoveListTest {
+
+    /**
+     * Tests if removeFromList correctly removes a task.
+     */
+    @Test
+    public void removeTask_validTask_taskRemoved() {
         Tasklist taskList = new Tasklist();
         Task task = new Todo("read book");
         taskList.addToList(task);
         taskList.removeFromList(1);
 
-        assertEquals(0, Tasklist.Listsize());
+        assertEquals(0, Tasklist.listSize());
     }
 }
+

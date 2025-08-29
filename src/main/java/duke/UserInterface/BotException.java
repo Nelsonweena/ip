@@ -1,11 +1,16 @@
-package duke.UserInterface;
+package duke.userinterface;
 
-//BotException class to handle exception messages
+/**
+ * Represents exceptions that occur in the Duke bot.
+ */
 public class BotException extends Exception {
 
-    //constructor class for exceptions 
+    /**
+     * Creates a new BotException with the given message.
+     *
+     * @param input the exception message
+     */
     public BotException(String input) {
         super(input);
     }
-    
 }
