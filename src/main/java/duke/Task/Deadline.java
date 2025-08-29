@@ -5,16 +5,22 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+//deadline class for Tasks labelled as deadline
 public class Deadline extends Task{
 
     private LocalDateTime dline;
 
-    public Deadline(String input){
+    /**
+     * constructor method for deadline class
+     *
+     * @param input description of deadline task 
+     */
+    public Deadline(String input) {
         super("");
-        String[] i = input.split(" /by ", 2);
-        this.description = i[0];
+        String[] inputArr = input.split(" /by ", 2);
+        this.description = inputArr[0];
 
-        String dateTimeStr = i[1];
+        String dateTimeStr = inputArr[1];
         DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
@@ -26,6 +32,7 @@ public class Deadline extends Task{
         }
     }
 
+    //toString method for deadline classes
     @Override
     public String toString() {
         DateTimeFormatter oFormat = DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");

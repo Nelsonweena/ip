@@ -2,39 +2,48 @@ package duke.Task;
 
 import java.util.ArrayList;
 
+
+//Tasklist class to manage tasks in list 
 public class Tasklist {
     private static ArrayList<Task> lst = new ArrayList<>();
 
-    public void addToList(Task t){
+    //method for adding tasks to list 
+    public void addToList(Task t) {
         lst.add(t);
     }
 
-    public void removeFromList(int i){
+    //method for removing tasks from list 
+    public void removeFromList(int i) {
         lst.remove(i - 1);
     }
 
-    public void tickbox(int i){
+    //method for ticking checkbox in list 
+    public void tickbox(int i) {
         Task t = lst.get(i - 1);
         t.markDone();
     }
 
-    public void untickbox(int i){
+    //method for unticking checkbox in list 
+    public void untickbox(int i) {
         Task t = lst.get(i - 1);
         t.markUndone();
     }
 
-    public static Task peekList(int i){
+    //getter method to return task inside specified list index 
+    public static Task peekList(int i) {
         return lst.get(i);
     }
 
-    public static int Listsize(){
+    //method for getting number of tasks in the list 
+    public static int Listsize() {
         return lst.size();
     }
 
-    public void displayList(){
+    //method to display all the tasks in the list 
+    public void displayList() {
         System.out.println("    ____________________________________");
         System.out.println("     Here are the tasks in your list:");
-        for(int i = 0; i < Listsize(); i++){
+        for (int i = 0; i < Listsize(); i++) {
             System.out.println("     " + (i + 1) + "." + peekList(i));
         }
         System.out.println("    ____________________________________");

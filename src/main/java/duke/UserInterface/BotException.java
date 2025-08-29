@@ -1,6 +1,10 @@
 package duke.UserInterface;
+
+//BotException class to handle exception messages
 public class BotException extends Exception{
-    public BotException(String input){
+
+    //constructor class for exceptions 
+    public BotException(String input) {
         super(input);
     }
     
