@@ -5,10 +5,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+//Event class for Tasks labelled as event
 public class Event extends Task{
     private LocalDateTime from;
     private LocalDateTime to;
 
+    //constructor method for event class
     public Event(String input){
         super("");
         String[] i = input.split(" /from ", 2);
@@ -37,6 +39,7 @@ public class Event extends Task{
 
     }
 
+    //toString method for event class 
     @Override
     public String toString() {
         DateTimeFormatter oFormat = DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");

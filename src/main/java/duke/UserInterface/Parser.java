@@ -6,15 +6,18 @@ import duke.Task.Task;
 import duke.Task.Tasklist;
 import duke.Task.Todo;
 
+//Parser class to turn user inputs into commands 
 public class Parser {
     private boolean Readback = false;
     private Tasklist lst = new Tasklist();
     private UI voice = new UI();
 
+    //constructor for Parser class 
     public Parser(boolean Readback){
         this.Readback = Readback;
     }
 
+    //method to change user input into commands 
     public boolean parse(String input){
         
             try {
@@ -128,6 +131,7 @@ public class Parser {
             return true;
     }
 
+    //method to enable readback, used to switch between no print statements during loading of tasks 
     public void enableReadback(){
         this.Readback = true;
     }

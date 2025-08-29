@@ -1,12 +1,15 @@
 package duke;
 import java.io.*;
 import java.util.*;
+
+//Storage class for storing and loading data 
 public class Storage {
     private File file;
     String filePath = "./data/UserInputs.txt";
     BufferedWriter bw;
     BufferedReader br;
-
+    
+    //Constructor for storage class
     public Storage() {
         this.file = new File(filePath).getAbsoluteFile();
         try {
@@ -24,6 +27,7 @@ public class Storage {
         }
     }
 
+    //Method for storing data into harddisk 
     public void storeData(String input) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) {
             bw.write(input);
@@ -33,6 +37,7 @@ public class Storage {
         }
     }
 
+    //Method for loading all of the previous saved data from harddisk 
     public List<String> loadAll(){
         List<String> lines = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -48,6 +53,7 @@ public class Storage {
     return lines;
     }
 
+    //Method for checking if harddisk data is available 
     public boolean dataAvail(){
         return file.exists() && file.length() > 0;
     }
