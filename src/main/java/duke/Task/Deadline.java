@@ -10,13 +10,22 @@ public class Deadline extends Task{
 
     private LocalDateTime dline;
 
+<<<<<<< HEAD
     //constructor method for deadline classes 
     public Deadline(String input){
+=======
+    /**
+     * constructor method for deadline class
+     *
+     * @param input description of deadline task 
+     */
+    public Deadline(String input) {
+>>>>>>> branch-A-CodingStandard
         super("");
-        String[] i = input.split(" /by ", 2);
-        this.description = i[0];
+        String[] inputArr = input.split(" /by ", 2);
+        this.description = inputArr[0];
 
-        String dateTimeStr = i[1];
+        String dateTimeStr = inputArr[1];
         DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 

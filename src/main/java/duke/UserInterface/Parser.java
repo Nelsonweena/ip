@@ -8,10 +8,11 @@ import duke.Task.Todo;
 
 //Parser class to turn user inputs into commands 
 public class Parser {
-    private boolean Readback = false;
+    private boolean hasReadBack = false;
     private Tasklist lst = new Tasklist();
     private UI voice = new UI();
 
+<<<<<<< HEAD
     //constructor for Parser class 
     public Parser(boolean Readback){
         this.Readback = Readback;
@@ -19,113 +20,125 @@ public class Parser {
 
     //method to change user input into commands 
     public boolean parse(String input){
+=======
+    /**
+    * Parser class contructor
+    *
+    * @param hasReadBack indicates if current inputs being passed should be readback to user
+    */
+    public Parser(boolean hasReadBack) {
+        this.hasReadBack = hasReadBack;
+    }
+
+    /**
+    * method to change user input into commands
+    *
+    * @param input input to parse into database
+    */ 
+    public boolean parse(String input) {
+>>>>>>> branch-A-CodingStandard
         
             try {
-                String[] s = input.split(" ", 2);
-                String command = s[0].toLowerCase();
-                String discript = (s.length > 1) ? s[1].trim() : "";
+                String[] inputArr = input.split(" ", 2);
+                String command = inputArr[0].toLowerCase();
+                String discript = (inputArr.length > 1) ? inputArr[1].trim() : "";
 
-                switch(command){
-                    case "mark": {
-                        if (discript.isEmpty()){
-                            if(Readback){
-                                voice.markError();
-                            }
-                        } 
-                        lst.tickbox(Integer.parseInt(discript));
-                        if(Readback){
-                            voice.tickboxEB(Integer.parseInt(discript));
+                switch(command) {
+                case "mark": {
+                    if (discript.isEmpty()) {
+                        if (hasReadBack) {
+                            voice.markError();
                         }
-                        break;
-                    }
-
-                    case "unmark": {
-                        if (discript.isEmpty()){
-                            if(Readback){
-                                voice.unmarkError();
-                            }
-                        } 
-                        lst.untickbox(Integer.parseInt(discript));
-                        if(Readback){
-                            voice.untickboxEB(Integer.parseInt(discript));
-                        }
-                        break;
-                    }
-
-                    case "delete": {
-                        if (discript.isEmpty()){
-                            if(Readback){
-                                voice.deleteError();
-                            }
-                        } 
-                        lst.removeFromList(Integer.parseInt(discript));
-                        if(Readback){
-                            voice.removeFromListEB(Integer.parseInt(discript));
-                        }
-                        break;
-                    }
-
-                    case "todo": {
-                        if (discript.isEmpty()) {
-                            if(Readback){
-                                voice.todoError();
-                            }
-                        }
-                        Task t = new Todo(discript);
-                        lst.addToList(t);
-                        if(Readback){
-                            voice.addToListEB(t);
-                        }
-                        break;
-                    }
-                    case "deadline": {
-                        if (discript.isEmpty() || !discript.contains("/by")) {
-                            if(Readback){
-                                voice.deadlineError();
-                            }
-                        }
-                        Task t = new Deadline(discript);
-                        lst.addToList(t);
-                        if(Readback){
-                            voice.addToListEB(t);
-                        }
-                        break;
                     } 
-                    case "event": {
-                        if (discript.isEmpty() || !discript.contains("/from") || !discript.contains("/to")) {
-                            if(Readback){
-                                voice.eventError();
-                            }
-                        
-                        }
-                        Task t = new Event(discript);
-                        lst.addToList(t);
-                        if(Readback){
-                            voice.addToListEB(t);
-                        }
-                        break;
+                    lst.tickbox(Integer.parseInt(discript));
+                    if (hasReadBack) {
+                        voice.tickboxEB(Integer.parseInt(discript));
                     }
-                    case "list": {
-                        if(Readback){
-                            lst.displayList();
+                    break;
+                }
+                case "unmark": {
+                    if (discript.isEmpty()) {
+                        if (hasReadBack) {
+                            voice.unmarkError();
                         }
-                        break;
                     } 
-                    case "bye": {
-                        if(Readback){
-                            voice.bye();
-                            return false;
+                    lst.untickbox(Integer.parseInt(discript));
+                    if (hasReadBack) {
+                        voice.untickboxEB(Integer.parseInt(discript));
+                    }
+                    break;
+                }
+                case "delete": {
+                    if (discript.isEmpty()) {
+                        if (hasReadBack) {
+                            voice.deleteError();
                         }
-                        break;
                     } 
-                    default: {
-                        if(Readback){
-                            voice.unknownError();
+                    lst.removeFromList(Integer.parseInt(discript));
+                    if (hasReadBack) {
+                        voice.removeFromListEB(Integer.parseInt(discript));
+                    }
+                    break;
+                }
+                case "todo": {
+                    if (discript.isEmpty()) {
+                        if (hasReadBack) {
+                            voice.todoError();
                         }
+                    }
+                    Task t = new Todo(discript);
+                    lst.addToList(t);
+                    if (hasReadBack) {
+                        voice.addToListEB(t);
+                    }
+                    break;
+                }
+                case "deadline": {
+                    if (discript.isEmpty() || !discript.contains("/by")) {
+                        if (hasReadBack) {
+                            voice.deadlineError();
+                        }
+                    }
+                    Task t = new Deadline(discript);
+                    lst.addToList(t);
+                    if (hasReadBack) {
+                        voice.addToListEB(t);
+                    }
+                    break;
+                } 
+                case "event": {
+                    if (discript.isEmpty() || !discript.contains("/from") || !discript.contains("/to")) {
+                        if (hasReadBack) {
+                            voice.eventError();
+                        }
+                    }
+                    Task t = new Event(discript);
+                    lst.addToList(t);
+                    if (hasReadBack) {
+                        voice.addToListEB(t);
+                    }
+                    break;
+                }
+                case "list": {
+                    if (hasReadBack) {
+                        lst.displayList();
+                    }
+                    break;
+                } 
+                case "bye": {
+                    if (hasReadBack) {
+                        voice.bye();
+                        return false;
+                    }
+                    break;
+                } 
+                default: {
+                    if (hasReadBack) {
+                        voice.unknownError();
                     }
                 }
-                
-            } catch (BotException e){
+                }      
+            } catch (BotException e) {
                 Errormsg.printError(e.getMessage());
             }
             return true;
@@ -133,6 +146,6 @@ public class Parser {
 
     //method to enable readback, used to switch between no print statements during loading of tasks 
     public void enableReadback(){
-        this.Readback = true;
+        this.hasReadBack = true;
     }
 }

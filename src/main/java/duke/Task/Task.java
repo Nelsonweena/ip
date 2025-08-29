@@ -6,7 +6,15 @@ public class Task {
     protected String description;
     private boolean isDone;
 
+<<<<<<< HEAD
     //constructor for task class 
+=======
+    /**
+    * constructor class for todo tasks
+    *
+    * @param description descripton of task 
+    */  
+>>>>>>> branch-A-CodingStandard
     public Task(String description) {
         this.isDone = false;
         this.description = description;

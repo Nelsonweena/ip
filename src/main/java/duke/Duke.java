@@ -1,5 +1,6 @@
 package duke;
-import java.util.*;
+import java.util.Scanner;
+import java.util.List;
 
 import duke.UserInterface.UI;
 import duke.UserInterface.Parser;
@@ -9,30 +10,41 @@ public class Duke {
 
     //Runs the program, loads data, then invite user to input commands 
     public static void main(String[] args) {
+        
         Scanner sc = new Scanner(System.in);
         UI voice = new UI();
         Storage storage = new Storage();
         Parser p;
 
         //loads previously stored data into current database 
+<<<<<<< HEAD
         if(storage.dataAvail()){
+=======
+        if (storage.hasData()) {
+>>>>>>> branch-A-CodingStandard
             List<String> Storedinputs = storage.loadAll();
             p = new Parser(false);
-            for(String prev : Storedinputs){
+            for(String prev : Storedinputs) {
                 p.parse(prev);
             } 
         } 
         p = new Parser(true);
-
         voice.welcome();
-        boolean loop = true;
+
         String input;
+<<<<<<< HEAD
 
         //handles new user commands and stores it into current existing database 
         while (loop) {
+=======
+        boolean isNotFinished = true;
+
+        //handles new user commands and stores it into current existing database 
+        while (isNotFinished) {
+>>>>>>> branch-A-CodingStandard
             input = sc.nextLine();
             storage.storeData(input);
-            loop = p.parse(input);
+            isNotFinished = p.parse(input);
         }
         sc.close();
     }
