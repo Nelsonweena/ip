@@ -1,1 +1,18 @@
+todo eat
+todo study
+list
+delete 2
+list
+bye
+todo eat
+todo study
+list
+remove 2
+delete 2
+list
+bye
+hi
+bye
+why
+bye
 bye

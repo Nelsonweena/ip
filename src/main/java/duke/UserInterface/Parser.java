@@ -29,7 +29,7 @@ public class Parser {
      * @param input the user input
      * @return true if Duke should continue running, false if it should exit
      */
-    public boolean parse(String input) {
+    public String parse(String input) {
         try {
             String[] inputArr = input.split(" ", 2);
             String command = inputArr[0].toLowerCase();
@@ -42,10 +42,10 @@ public class Parser {
                         voice.markError();
                     }
                 }
-                lst.tickbox(Integer.parseInt(discript));
                 if (hasReadBack) {
-                    voice.tickboxEB(Integer.parseInt(discript));
+                    return voice.tickboxEB(Integer.parseInt(discript));
                 }
+                lst.tickbox(Integer.parseInt(discript));
                 break;
 
             case "unmark":
@@ -54,21 +54,23 @@ public class Parser {
                         voice.unmarkError();
                     }
                 }
-                lst.untickbox(Integer.parseInt(discript));
                 if (hasReadBack) {
-                    voice.untickboxEB(Integer.parseInt(discript));
+                    return voice.untickboxEB(Integer.parseInt(discript));
                 }
+                lst.untickbox(Integer.parseInt(discript));
                 break;
 
             case "delete":
                 if (discript.isEmpty()) {
                     if (hasReadBack) {
-                        voice.deleteError();
+                        voice.deleteError(); // throws BotException
                     }
                 }
-                lst.removeFromList(Integer.parseInt(discript));
+                int index = Integer.parseInt(discript);
+                Task removedTask = Tasklist.peekList(index - 1);
+                lst.removeFromList(index);
                 if (hasReadBack) {
-                    voice.removeFromListEB(Integer.parseInt(discript));
+                    return voice.removeFromListEB(removedTask);
                 }
                 break;
 
@@ -81,7 +83,7 @@ public class Parser {
                 Task t1 = new Todo(discript);
                 lst.addToList(t1);
                 if (hasReadBack) {
-                    voice.addToListEB(t1);
+                    return voice.addToListEB(t1);
                 }
                 break;
 
@@ -94,7 +96,7 @@ public class Parser {
                 Task t2 = new Deadline(discript);
                 lst.addToList(t2);
                 if (hasReadBack) {
-                    voice.addToListEB(t2);
+                    return voice.addToListEB(t2);
                 }
                 break;
 
@@ -107,26 +109,25 @@ public class Parser {
                 Task t3 = new Event(discript);
                 lst.addToList(t3);
                 if (hasReadBack) {
-                    voice.addToListEB(t3);
+                    return voice.addToListEB(t3);
                 }
                 break;
 
             case "list":
                 if (hasReadBack) {
-                    lst.displayList();
+                    return lst.displayList();
                 }
                 break;
 
             case "find":
                 if (hasReadBack) {
-                    lst.find(discript);
+                    return lst.find(discript);
                 }
                 break;
 
             case "bye":
                 if (hasReadBack) {
-                    voice.bye();
-                    return false;
+                    return voice.bye();
                 }
                 break;
 
@@ -137,9 +138,9 @@ public class Parser {
                 break;
             }
         } catch (BotException e) {
-            Errormsg.printError(e.getMessage());
+            return Errormsg.printError(e.getMessage());
         }
-        return true;
+        return "";
     }
 
     /**

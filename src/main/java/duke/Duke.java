@@ -11,37 +11,75 @@ import duke.userinterface.UI;
  */
 public class Duke {
 
+    private final UI voice;
+    private final Storage storage;
+    private Parser p;
+
     /**
-     * Runs the program, loads data, then invites user to input commands.
+     * Constructs a Duke instance.
+     * Initializes UI, storage, and parser.
      */
-    public static void main(String[] args) {
+    public Duke() {
+        this.voice = new UI();
+        this.storage = new Storage();
 
-        Scanner sc = new Scanner(System.in);
-        UI voice = new UI();
-        Storage storage = new Storage();
-        Parser p;
-
-        // Loads previously stored data into current database
+        // First, preload tasks without readback
+        this.p = new Parser(false);
         if (storage.hasData()) {
             List<String> storedInputs = storage.loadAll();
-            p = new Parser(false);
             for (String prev : storedInputs) {
                 p.parse(prev);
             }
         }
 
-        p = new Parser(true);
-        voice.welcome();
+        // Finally, set parser with requested readback mode
+        this.p = new Parser(true);
+    }
 
-        String input;
+    /**
+     * CLI entry point. Runs Duke in text-based mode.
+     */
+    public static void main(String[] args) {
+        Duke duke = new Duke(); // CLI mode with readback
+        Scanner sc = new Scanner(System.in);
+
+        duke.voice.welcome();
+
         boolean isNotFinished = true;
-
-        // Handles new user commands and stores them into the current database
         while (isNotFinished) {
-            input = sc.nextLine();
-            storage.storeData(input);
-            isNotFinished = p.parse(input);
+            String input = sc.nextLine();
+            duke.storage.storeData(input);
+            String response = duke.p.parse(input);
+            if (!response.isEmpty()) {
+                System.out.println(response);
+            }
+            if (input.equalsIgnoreCase("bye")) {
+                isNotFinished = false;
+            }
         }
+
         sc.close();
+    }
+
+    /**
+     * Returns Duke's response for the GUI.
+     *
+     * @param input user input
+     * @return Duke's response string
+     */
+    public String getResponse(String input) {
+        storage.storeData(input);
+        return p.parse(input);
+    }
+    public String getWelcomeMessage() {
+        return voice.welcomeGui();
+    }
+
+    public String getLoadMessage() {
+        if (storage.hasData()) {
+            return "Loaded previous tasks from storage.";
+        } else {
+            return "New storage file created.";
+        }
     }
 }

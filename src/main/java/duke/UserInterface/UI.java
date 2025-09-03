@@ -18,10 +18,21 @@ public class UI {
     /**
      * Prints the welcome message.
      */
-    public void welcome() {
-        System.out.println("    ____________________________________");
-        System.out.println("     Hello! I'm\n" + logo + "\n" + "     What can I do for you?");
-        System.out.println("    ____________________________________");
+    public String welcome() {
+        return "    ____________________________________\n"
+             + "     Hello! I'm\n" + logo + "\n"
+             + "     What can I do for you?\n"
+             + "    ____________________________________";
+    }
+
+    /**
+     * Prints the welcome message for gui.
+     */
+    public String welcomeGui() {
+        return "    ____________________________________\n"
+             + "     Hello! I'm NELSON\n"
+             + "     What can I do for you?\n"
+             + "    ____________________________________";
     }
 
     /**
@@ -29,35 +40,34 @@ public class UI {
      *
      * @param t the task added
      */
-    public void addToListEB(Task t) {
-        System.out.println("    ____________________________________");
-        System.out.println("     Got it. I've added this task:");
-        System.out.println("      " + t);
-        System.out.println("     Now you have " + Tasklist.listSize() + " tasks in the list");
-        System.out.println("    ____________________________________");
+    public String addToListEB(Task t) {
+        return "    ____________________________________\n"
+             + "     Got it. I've added this task:\n"
+             + "      " + t + "\n"
+             + "     Now you have " + Tasklist.listSize() + " tasks in the list\n"
+             + "    ____________________________________";
     }
 
     /**
      * Prints goodbye message.
      */
-    public void bye() {
-        System.out.println("    ____________________________________");
-        System.out.println("    Bye. Hope to see you again soon!");
-        System.out.println("    ____________________________________");
+    public String bye() {
+        return "    ____________________________________\n"
+             + "    Bye. Hope to see you again soon!\n"
+             + "    ____________________________________";
     }
 
     /**
      * Prints acknowledgement of task removal.
      *
-     * @param i index of task removed
+     * @param t task to be removed
      */
-    public void removeFromListEB(int i) {
-        Task t = Tasklist.peekList(i - 1);
-        System.out.println("    ____________________________________________________________");
-        System.out.println("     Noted. I've removed this task:");
-        System.out.println("       " + t);
-        System.out.println("     Now you have " + Tasklist.listSize() + " tasks in the list.");
-        System.out.println("    ____________________________________________________________");
+    public String removeFromListEB(Task t) {
+        return "    ____________________________________\n"
+            + "     Noted. I've removed this task:\n"
+            + "       " + t + "\n"
+            + "     Now you have " + Tasklist.listSize() + " tasks in the list.\n"
+            + "    ____________________________________";
     }
 
     /**
@@ -65,12 +75,12 @@ public class UI {
      *
      * @param i index of task marked as done
      */
-    public void tickboxEB(int i) {
+    public String tickboxEB(int i) {
         Task t = Tasklist.peekList(i - 1);
-        System.out.println("    ____________________________________");
-        System.out.println("     Nice! I've marked this task as done:");
-        System.out.println("     " + t);
-        System.out.println("    ____________________________________");
+        return "    ____________________________________\n"
+             + "     Nice! I've marked this task as done:\n"
+             + "     " + t + "\n"
+             + "    ____________________________________";
     }
 
     /**
@@ -78,12 +88,12 @@ public class UI {
      *
      * @param i index of task marked as not done
      */
-    public void untickboxEB(int i) {
+    public String untickboxEB(int i) {
         Task t = Tasklist.peekList(i - 1);
-        System.out.println("    ____________________________________");
-        System.out.println("     OK, I've marked this task as not done yet:");
-        System.out.println("     " + t);
-        System.out.println("    ____________________________________");
+        return "    ____________________________________\n"
+             + "     OK, I've marked this task as not done yet:\n"
+             + "     " + t + "\n"
+             + "    ____________________________________";
     }
 
     // Error methods

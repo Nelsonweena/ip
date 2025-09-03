@@ -10,9 +10,9 @@ public class Errormsg {
      *
      * @param msg the error message to display
      */
-    public static void printError(String msg) {
-        System.out.println("    ____________________________________");
-        System.out.println("     " + msg);
-        System.out.println("    ____________________________________");
+    public static String printError(String msg) {
+        return "    ____________________________________\n"
+             + "     " + msg + "\n"
+             + "    ____________________________________";
     }
 }

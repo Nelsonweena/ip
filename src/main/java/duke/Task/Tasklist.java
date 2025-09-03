@@ -69,13 +69,15 @@ public class Tasklist {
     /**
      * Displays all the tasks in the list.
      */
-    public void displayList() {
-        System.out.println("    ____________________________________");
-        System.out.println("     Here are the tasks in your list:");
+    public String displayList() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("    ____________________________________\n");
+        sb.append("     Here are the tasks in your list:\n");
         for (int i = 0; i < listSize(); i++) {
-            System.out.println("     " + (i + 1) + "." + peekList(i));
+            sb.append("     ").append(i + 1).append(".").append(peekList(i)).append("\n");
         }
-        System.out.println("    ____________________________________");
+        sb.append("    ____________________________________");
+        return sb.toString();
     }
 
     /**
@@ -83,15 +85,17 @@ public class Tasklist {
      *
      * @param keyword the search keyword
      */
-    public void find(String keyword) {
-        System.out.println("    ____________________________________");
-        System.out.println("     Here are the matching tasks in your list:");
+    public String find(String keyword) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("    ____________________________________\n");
+        sb.append("     Here are the matching tasks in your list:\n");
         for (int i = 0; i < listSize(); i++) {
             Task t = peekList(i);
             if (t.toString().contains(keyword)) {
-                System.out.println("     " + (i + 1) + "." + t);
+                sb.append("     ").append(i + 1).append(".").append(t).append("\n");
             }
         }
-        System.out.println("    ____________________________________");
+        sb.append("    ____________________________________");
+        return sb.toString();
     }
 }
