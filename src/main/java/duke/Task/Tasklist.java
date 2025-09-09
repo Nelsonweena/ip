@@ -67,6 +67,15 @@ public class Tasklist {
     }
 
     /**
+     * sets priority of task.
+     *
+     */
+    public void setPriorityList(int index, String priority) {
+        Task t = lst.get(index - 1);
+        t.setPriority(priority);
+    }
+
+    /**
      * Displays all the tasks in the list.
      */
     public String displayList() {

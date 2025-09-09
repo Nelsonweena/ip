@@ -96,6 +96,18 @@ public class UI {
              + "    ____________________________________";
     }
 
+    /**
+     * Prints acknowledgement setting priority of task
+     *
+     * @param index index of task to set priority
+     * @param priority priority level of task
+     */
+    public String setPriorityEB(int index, String priority) {
+        return "    ____________________________________\n"
+             + "     Priority of task at index " + index + " set to " + priority
+             + "    ____________________________________";
+    }
+
     // Error methods
     public void markError() throws BotException {
         throw new BotException("OOPS!!! Mark needs a task number.");
@@ -123,5 +135,9 @@ public class UI {
 
     public void unknownError() throws BotException {
         throw new BotException("OOPS!!! I'm sorry, but I don't know what that means :-(");
+    }
+
+    public void priorityError() throws BotException {
+        throw new BotException("OOPS!!! Priority index and value cannot be empty.");
     }
 }

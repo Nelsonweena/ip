@@ -39,10 +39,23 @@ public class Parser {
             String description = (inputArr.length > 1) ? inputArr[1].trim() : "";
 
             assert !command.isEmpty() : "Command word should not be empty";
-            
-            String discript = (inputArr.length > 1) ? inputArr[1].trim() : "";
 
             switch (command) {
+            case "priority":
+                if (description.isEmpty()) {
+                    if (hasReadBack) {
+                        voice.priorityError();
+                    }
+                }
+                String[] priorityArr = description.split(" ", 2);
+                int priorityIndex = Integer.parseInt(priorityArr[0]);
+                String priority = priorityArr[1];
+                lst.setPriorityList(priorityIndex, priority);
+                if (hasReadBack) {
+                    return voice.setPriorityEB(priorityIndex, priority);
+                }
+                break;
+
             case "mark":
                 if (description.isEmpty()) {
                     if (hasReadBack) {

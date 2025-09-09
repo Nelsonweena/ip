@@ -109,7 +109,6 @@ public class Main extends Application {
         );
         userInput.clear();
         if (userText.trim().equalsIgnoreCase("bye")) {
-        
             PauseTransition delay = new PauseTransition(Duration.seconds(1));
             delay.setOnFinished(event -> {
                 Platform.exit();
