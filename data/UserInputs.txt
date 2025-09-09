@@ -1,18 +1,14 @@
 todo eat
-todo study
-list
-delete 2
-list
-bye
 todo eat
-todo study
+delete 1
 list
-remove 2
-delete 2
+deadline study /by 2022-10-15
+event networking /from 2021-11-17 /to 2023-12-14
+mark 1
 list
-bye
-hi
-bye
-why
-bye
-bye
+list
+Event pray /from 2025-10-11 1800 /to 2025-12-14 0200
+todo make coffee
+mark 3
+llist
+list

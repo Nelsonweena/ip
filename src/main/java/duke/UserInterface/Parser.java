@@ -42,10 +42,10 @@ public class Parser {
                         voice.markError();
                     }
                 }
+                lst.tickbox(Integer.parseInt(discript));
                 if (hasReadBack) {
                     return voice.tickboxEB(Integer.parseInt(discript));
                 }
-                lst.tickbox(Integer.parseInt(discript));
                 break;
 
             case "unmark":
@@ -54,10 +54,10 @@ public class Parser {
                         voice.unmarkError();
                     }
                 }
+                lst.untickbox(Integer.parseInt(discript));
                 if (hasReadBack) {
                     return voice.untickboxEB(Integer.parseInt(discript));
                 }
-                lst.untickbox(Integer.parseInt(discript));
                 break;
 
             case "delete":

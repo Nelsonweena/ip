@@ -108,12 +108,13 @@ public class Main extends Application {
                 DialogBox.getDukeDialog(dukeText, dukeImage)
         );
         userInput.clear();
-
-        PauseTransition delay = new PauseTransition(Duration.seconds(1));
-        delay.setOnFinished(event -> {
-            Platform.exit();
-            System.exit(0);
-        });
-        delay.play();
+        if (userText.trim().equalsIgnoreCase("bye")) {
+        
+            PauseTransition delay = new PauseTransition(Duration.seconds(1));
+            delay.setOnFinished(event -> {
+                Platform.exit();
+            });
+            delay.play();
+        }
     }
 }
