@@ -31,9 +31,16 @@ public class Parser {
      */
     public String parse(String input) {
         try {
+            assert input != null : "User input should not be null";
+
             String[] inputArr = input.split(" ", 2);
             String command = inputArr[0].toLowerCase();
+
             String description = (inputArr.length > 1) ? inputArr[1].trim() : "";
+
+            assert !command.isEmpty() : "Command word should not be empty";
+            
+            String discript = (inputArr.length > 1) ? inputArr[1].trim() : "";
 
             switch (command) {
             case "mark":
