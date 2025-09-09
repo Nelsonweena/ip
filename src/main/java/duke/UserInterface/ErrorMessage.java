@@ -3,7 +3,7 @@ package duke.userinterface;
 /**
  * Utility class for printing error messages in a formatted style.
  */
-public class Errormsg {
+public class ErrorMessage {
 
     /**
      * Prints an error message in a formatted box.
