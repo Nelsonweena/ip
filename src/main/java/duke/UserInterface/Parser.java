@@ -35,42 +35,45 @@ public class Parser {
 
             String[] inputArr = input.split(" ", 2);
             String command = inputArr[0].toLowerCase();
+
+            String description = (inputArr.length > 1) ? inputArr[1].trim() : "";
+
             assert !command.isEmpty() : "Command word should not be empty";
             
             String discript = (inputArr.length > 1) ? inputArr[1].trim() : "";
 
             switch (command) {
             case "mark":
-                if (discript.isEmpty()) {
+                if (description.isEmpty()) {
                     if (hasReadBack) {
                         voice.markError();
                     }
                 }
-                lst.tickbox(Integer.parseInt(discript));
+                lst.tickbox(Integer.parseInt(description));
                 if (hasReadBack) {
-                    return voice.tickboxEB(Integer.parseInt(discript));
+                    return voice.tickboxEB(Integer.parseInt(description));
                 }
                 break;
 
             case "unmark":
-                if (discript.isEmpty()) {
+                if (description.isEmpty()) {
                     if (hasReadBack) {
                         voice.unmarkError();
                     }
                 }
-                lst.untickbox(Integer.parseInt(discript));
+                lst.untickbox(Integer.parseInt(description));
                 if (hasReadBack) {
-                    return voice.untickboxEB(Integer.parseInt(discript));
+                    return voice.untickboxEB(Integer.parseInt(description));
                 }
                 break;
 
             case "delete":
-                if (discript.isEmpty()) {
+                if (description.isEmpty()) {
                     if (hasReadBack) {
                         voice.deleteError(); // throws BotException
                     }
                 }
-                int index = Integer.parseInt(discript);
+                int index = Integer.parseInt(description);
                 Task removedTask = Tasklist.peekList(index - 1);
                 lst.removeFromList(index);
                 if (hasReadBack) {
@@ -79,12 +82,12 @@ public class Parser {
                 break;
 
             case "todo":
-                if (discript.isEmpty()) {
+                if (description.isEmpty()) {
                     if (hasReadBack) {
                         voice.todoError();
                     }
                 }
-                Task t1 = new Todo(discript);
+                Task t1 = new Todo(description);
                 lst.addToList(t1);
                 if (hasReadBack) {
                     return voice.addToListEB(t1);
@@ -92,12 +95,12 @@ public class Parser {
                 break;
 
             case "deadline":
-                if (discript.isEmpty() || !discript.contains("/by")) {
+                if (description.isEmpty() || !description.contains("/by")) {
                     if (hasReadBack) {
                         voice.deadlineError();
                     }
                 }
-                Task t2 = new Deadline(discript);
+                Task t2 = new Deadline(description);
                 lst.addToList(t2);
                 if (hasReadBack) {
                     return voice.addToListEB(t2);
@@ -105,12 +108,12 @@ public class Parser {
                 break;
 
             case "event":
-                if (discript.isEmpty() || !discript.contains("/from") || !discript.contains("/to")) {
+                if (description.isEmpty() || !description.contains("/from") || !description.contains("/to")) {
                     if (hasReadBack) {
                         voice.eventError();
                     }
                 }
-                Task t3 = new Event(discript);
+                Task t3 = new Event(description);
                 lst.addToList(t3);
                 if (hasReadBack) {
                     return voice.addToListEB(t3);
@@ -125,7 +128,7 @@ public class Parser {
 
             case "find":
                 if (hasReadBack) {
-                    return lst.find(discript);
+                    return lst.find(description);
                 }
                 break;
 
@@ -142,7 +145,7 @@ public class Parser {
                 break;
             }
         } catch (BotException e) {
-            return Errormsg.printError(e.getMessage());
+            return ErrorMessage.printError(e.getMessage());
         }
         return "";
     }
