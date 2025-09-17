@@ -9,7 +9,7 @@ import duke.userinterface.UI;
 /**
  * Represents the main entry point for the Duke application.
  */
-public class Duke {
+public class Nelson {
 
     private final UI voice;
     private final Storage storage;
@@ -19,7 +19,7 @@ public class Duke {
      * Constructs a Duke instance.
      * Initializes UI, storage, and parser.
      */
-    public Duke() {
+    public Nelson() {
         this.voice = new UI();
         this.storage = new Storage();
 
@@ -40,7 +40,7 @@ public class Duke {
      * CLI entry point. Runs Duke in text-based mode.
      */
     public static void main(String[] args) {
-        Duke duke = new Duke(); // CLI mode with readback
+        Nelson duke = new Nelson(); // CLI mode with readback
         Scanner sc = new Scanner(System.in);
 
         duke.voice.welcome();

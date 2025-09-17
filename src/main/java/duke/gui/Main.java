@@ -1,6 +1,6 @@
 package duke.gui;
 
-import duke.Duke;
+import duke.Nelson;
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
- * Main class serves as entry point for GUI of Duke application. 
+ * Main class serves as entry point for GUI of Duke application.
  * sets up JavaFX UI xomponents as dialog Container, scroll pane,
  * user input field and send button.
  */
@@ -24,7 +24,7 @@ public class Main extends Application {
 
     private Image userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
     private Image dukeImage = new Image(this.getClass().getResourceAsStream("/images/DaDuke.png"));
-    private Duke duke = new Duke();
+    private Nelson duke = new Nelson();
     private ScrollPane scrollPane;
     private VBox dialogContainer;
     private TextField userInput;
@@ -67,7 +67,7 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
 
-        stage.setTitle("Duke");
+        stage.setTitle("Nelson");
         stage.setResizable(false);
         stage.setMinHeight(600.0);
         stage.setMinWidth(400.0);
