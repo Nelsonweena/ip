@@ -1,8 +1,11 @@
 # Nelson User Guide
 
+![Ui](Ui.png)
+
 ## Introduction
 Nelson is a simple chatbot that helps you manage tasks.  
-You can add tasks, set deadlines, mark them as done, delete them, and view your task list — all from a single text-based interface.
+You can add tasks, set deadlines, mark them as done, delete them, and view your task list 
+all from a single text-based interface.
 
 ## Quick Start 
 1. Ensure you have **java 17** or above installed on your computer 
