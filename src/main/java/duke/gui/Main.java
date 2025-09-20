@@ -18,7 +18,7 @@ import javafx.util.Duration;
 /**
  * Main class serves as entry point for GUI of Duke application.
  * sets up JavaFX UI xomponents as dialog Container, scroll pane,
- * user input field and send button.
+ * user input fields and send button.
  */
 public class Main extends Application {
 
