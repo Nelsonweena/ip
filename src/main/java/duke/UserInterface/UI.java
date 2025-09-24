@@ -97,7 +97,7 @@ public class UI {
     }
 
     /**
-     * Prints acknowledgement setting priority of task
+     * Prints acknowledgement of setting the priority of a task.
      *
      * @param index index of task to set priority
      * @param priority priority level of task
