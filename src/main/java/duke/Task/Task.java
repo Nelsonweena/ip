@@ -13,7 +13,7 @@ public class Task {
     /**
      * Creates a new task with the given description.
      *
-     * @param description description of the task
+     * @param description The description of the task
      */
     public Task(String description) {
         this.isDone = false;
