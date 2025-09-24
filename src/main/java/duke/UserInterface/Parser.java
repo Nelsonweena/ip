@@ -17,7 +17,7 @@ public class Parser {
     /**
      * Constructs a Parser.
      *
-     * @param hasReadBack indicates if current inputs should be echoed back to the user
+     * @param hasReadBack True if inputs should be echoed back to the user
      */
     public Parser(boolean hasReadBack) {
         this.hasReadBack = hasReadBack;
