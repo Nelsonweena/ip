@@ -80,7 +80,7 @@ public class Task {
     /**
      * Returns the string representation of the task.
      *
-     * @return priority, status icon, and description
+     * @return A string with the priority, status icon, and description
      */
     @Override
     public String toString() {
